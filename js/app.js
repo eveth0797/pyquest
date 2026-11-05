@@ -196,9 +196,18 @@
     }
     const passed = res.results.every(x => x[1]);
     updateMastery(cur.topic, passed, S.attempts[cur.id], (S.hintsUsed[cur.id] || 0) > 0);
+    if (!passed) $("#console").insertAdjacentHTML("beforeend", `<div class="row"><button class="btn ghost sm" id="askAI">🤖 Pedir explicación a Claude (sin darte la solución)</button></div>`);
     if (passed) victory(res.quality, ch); else { $("#console").insertAdjacentHTML("beforeend", `<div class="dim">El enemigo resiste. Revisa los tests fallidos. ${hintsAvailable() > (S.hintsUsed[cur.id] || 0) ? "Hay una pista disponible." : ""}</div>`); renderHints(); $("#solutionBtn").hidden = S.attempts[cur.id] < 4; }
     save(); hud();
   }
+  document.addEventListener("click", async e => {
+    if (!e.target.closest("#askAI") || !cur) return;
+    const tmp = document.createElement("div"); tmp.innerHTML = cur.theory + "<br>" + cur.task; const plain = tmp.textContent;
+    const prompt = `Eres mi tutor de Python de nivel universitario. NO me des la solución completa: explícame el concepto, señala el error concreto y dame una pista socrática.\n\n## Nivel: ${cur.title} (${cur.topic})\n${plain}\n\n## Mi código\n\`\`\`python\n${ed.value}\n\`\`\`\n\n## Resultado de los tests\n${$("#console").innerText.slice(0, 1500)}`;
+    try { await navigator.clipboard.writeText(prompt); } catch {}
+    window.open("https://claude.ai/new?q=" + encodeURIComponent(prompt.slice(0, 6000)), "_blank", "noopener");
+    toast("📋 Pregunta copiada; se abrió Claude");
+  });
   function hit() { const f = $(".foe"); f.classList.remove("hit"); void f.offsetWidth; f.classList.add("hit"); beep([660, 880], "square", 0.05); burst(f, "#ffd60a"); }
   function miss() { beep([180], "triangle", 0.1); }
   function shake() { const el = $("#scr-level"); el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake"); }
