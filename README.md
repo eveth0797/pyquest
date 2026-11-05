@@ -13,7 +13,7 @@ Python real se ejecuta **en tu navegador** (Pyodide/WebAssembly). No hace falta 
 4. Una **revisión automática de buenas prácticas** (con AST) te da de 1 a 3 ★: type hints, docstrings, PEP 8, `is None`, nada de `except:` desnudo ni `global`, `enumerate` en lugar de `range(len())`…
 5. Vence a los niveles de un mundo para enfrentarte a su **jefe**. Cada jefe desbloquea el siguiente mundo.
 
-## 🗺️ Mundos (31 niveles)
+## 🗺️ Mundos (36 niveles)
 | # | Mundo | Temas |
 |---|---|---|
 | 1 | 🌱 Bosque de los Fundamentos | funciones, control de flujo, recursión y memoización, strings, Counter |
@@ -22,8 +22,8 @@ Python real se ejecuta **en tu navegador** (Pyodide/WebAssembly). No hace falta 
 | 4 | 🗼 Torre Pythónica | generadores, decoradores con argumentos, context managers, tipado y genéricos |
 | 5 | 🌀 Laberinto Algorítmico | búsqueda binaria, programación dinámica, Dijkstra, merge sort e inversiones |
 | 6 | 🧮 Matriz de NumPy | vectorización, broadcasting, mínimos cuadrados, PCA con SVD |
-| 7 | 🤖 Valle del Aprendizaje | descenso de gradiente, regresión logística estable, k-means++, red neuronal con backprop (XOR) |
-| 8 | 🧠 Santuario de la Atención | softmax estable, scaled dot-product attention con máscara causal, codificación posicional, LayerNorm, **multi-head attention** |
+| 7 | 🤖 Valle del Aprendizaje | descenso de gradiente, regresión logística estable, k-means++, **autograd (micrograd)**, **Adam**, red neuronal con backprop (XOR) |
+| 8 | 🧠 Santuario de la Atención | softmax estable, scaled dot-product attention con máscara causal, codificación posicional, LayerNorm, entropía cruzada y su gradiente, muestreo con temperatura y top-k, tokenización BPE, **multi-head attention** |
 
 ## 🧠 Aprendizaje adaptativo
 - **Maestría por tema (0-100%)**: sube al vencer con pocos intentos y sin pistas, y baja un poco con los errores.

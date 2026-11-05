@@ -10,7 +10,7 @@ Juego web estático (HTML/CSS/JS sin build) para aprender Python. Cada nivel se 
 |---|---|
 | `index.html` | Estructura: header (XP, racha), pantalla `#scr-map` (mundos y panel adaptativo) y `#scr-level` (teoría, editor, consola, enemigo), modal `#victory`. |
 | `css/style.css` | Estilos. Variables en `:root`. `--wc` = color del mundo actual. **Regla importante:** `[hidden]{display:none!important}` evita que los overlays con `display:grid` bloqueen los clics. |
-| `js/levels.js` | **Todo el contenido.** `window.PQ_WORLDS` (8 mundos) y `window.PQ_LEVELS` (31 niveles, en orden de progresión). |
+| `js/levels.js` | **Todo el contenido.** `window.PQ_WORLDS` (8 mundos) y `window.PQ_LEVELS` (36 niveles, en orden de progresión). |
 | `js/app.js` | Lógica: estado, desbloqueo, maestría adaptativa, pistas, worker, combate, victoria, logros, fondo animado. |
 | `js/worker.js` | Carga Pyodide desde jsDelivr (`PYODIDE_URL`), define el harness Python `_pq_run` y la revisión de buenas prácticas `_pq_quality` (AST). |
 | `sw.js` | Service worker: cachea la app y los archivos de Pyodide (offline después de la primera carga). Sube `C = "pyquest-vN"` al cambiar archivos cacheados. |
